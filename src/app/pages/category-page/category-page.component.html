@@ -1,0 +1,20 @@
+
+<div class="margin-left-10">
+  <h1 class="header-font-size text-align-center">{{categoryName}}</h1>
+</div>
+<div class="wrapper">
+  <div class="left-side-bar">
+    <p>Filter By:</p>
+    <hr />
+    <p>Collection <span><i class="fa fa-minus" aria-hidden="true"></i></span></p>
+    <p>All</p>
+    <p>Deals</p>
+    <p>Most Popular</p>
+    <hr />
+    <p>Price <span><i class="fa fa-plus" aria-hidden="true"></i></span></p>
+    <hr />
+  </div>
+  <div class="right-img">
+    <img *ngFor="let image of  galleryImages; index as i" class="cursor-pointer" [src]="image.path" (click)="productClicked(i)" width="450">
+  </div>
+</div>

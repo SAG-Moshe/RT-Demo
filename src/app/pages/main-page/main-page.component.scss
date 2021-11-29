@@ -1,0 +1,35 @@
+.wrapper {
+  height: calc(100% - 450px);
+  position: absolute;
+  width: 100%;
+
+  .left-img {
+    background-color: seagreen;
+    display: inline-block;
+    height: 100%;
+    width: 55%;
+  }
+
+  .right-img {
+    background-color: rgb(206, 39, 39);
+    display: inline-block;
+    height: 100%;
+    margin-left: 5%;
+    width: 40%;
+  }
+}
+
+.gallery-container {
+  position: absolute;
+  top: 350px;
+
+  .gallery {
+    height: 450px;
+    overflow: hidden;
+    width: 100%;
+
+    img {
+      display: inline;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <div class="left-img" [style.background-color]="user.mainPage.leftImg"></div>
+  <div class="right-img"></div>
+</div>
+<div class="gallery-container">
+  <p class="subtitle-font-size">Best Deals</p>
+  <div class="gallery">
+    <img *ngFor="let image of  galleryImages; index as i" class="cursor-pointer" [src]="image.path" (click)="productClicked(i)" width="450">
+  </div>
+</div>

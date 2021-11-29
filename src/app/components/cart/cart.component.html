@@ -1,0 +1,35 @@
+<div class="header header-font-size">
+  <div class="title" style="display: inline-block;">Cart</div>
+  <div class="close-arrow" (click)="closeCart()"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+</div>
+
+<div class="content">
+  <div *ngIf="isEmptyCart" class="noItems">
+    There are no items in cart
+    <span class="cursor-pointer text-decoration-underline" (click)="closeCart()">Continue Shopping</span>
+  </div>
+  <div  *ngIf="!isEmptyCart">
+    <div *ngFor="let singleItem of shoppingCart.items" class="singleItem">
+      <div class="img">
+        <img [src]="singleItem.path" width="100" />
+      </div>
+      <div class="item-details">
+        <span>{{singleItem.name}}</span><br />
+        <span>{{singleItem.price}}$</span><br />
+        <div class="controlles">
+          <span class="cursor-pointer" (click)="reduceProductClicked(singleItem)"><i class="fa fa-minus" aria-hidden="true"></i></span>
+          <span class="color-black">{{singleItem.amount}}</span>
+          <span class="cursor-pointer" (click)="addProductClicked(singleItem)"><i class="fa fa-plus" aria-hidden="true"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="total-container">
+    <h1>Subtotal</h1>
+    <div>{{shoppingCart.sum}}$</div>
+  </div>
+  <div class="btn" (click)="checkout()">View Cart</div>
+</div>

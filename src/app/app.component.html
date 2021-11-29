@@ -1,0 +1,77 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <div  class="flex-grow width-33-percent">
+    <span>About Us</span>
+    <span style="margin-left: 10px;">Customer Support</span>
+  </div>
+  <div  class="flex-grow width-33-percent text-align-center">
+    <span>
+      Shop on the go, download our app.
+      <span  class="cursor-pointer text-decoration-underline">
+        Details
+      </span>
+    </span>
+  </div>
+  <div  class="flex-grow width-33-percent text-align-right">
+    <i class="fa fa-user margin-right-10" aria-hidden="true"></i>
+    <span>{{user.displayName}}</span>
+  </div>
+</div>
+
+<!--shopping bar-->
+<!-- <div class="shopping-bar">
+  <div class="width-33-percent">
+    <span class="cursor-pointer header-font-size" (click)="goHome()">Clovers</span>
+  </div>
+  <div class="width-33-percent">
+    <input type="text" placeholder="Search a product e.g. milk">
+    <i class="fa fa-search margin-left-10" aria-hidden="true"></i>
+  </div>
+  <div>
+    <i class="fa fa-map-marker margin-right-10" aria-hidden="true"></i>
+    <i class="fa fa-heart margin-right-10" aria-hidden="true"></i>
+    <span class="cursor-pointer" (click)="shoppingCartClicked()">
+      <i class="fa fa-shopping-cart margin-right-10" aria-hidden="true"></i>
+      <span class="circle">{{numberOfItemsInCart}}</span>
+    </span>
+  </div>
+</div> -->
+
+
+<div class="shopping-bar" role="banner">
+  <div class="flex-grow width-33-percent">
+    <span class="cursor-pointer header-font-size" (click)="goHome()">Clovers</span>
+  </div>
+  <div  class="flex-grow width-33-percent text-align-center">
+    <input type="text" placeholder="Search a product e.g. milk">
+    <i class="fa fa-search margin-left-10" aria-hidden="true"></i>
+  </div>
+  <div  class="flex-grow width-33-percent text-align-right">
+    <i class="fa fa-map-marker margin-right-10" aria-hidden="true"></i>
+    <i class="fa fa-heart margin-right-10" aria-hidden="true"></i>
+    <span class="cursor-pointer" (click)="shoppingCartClicked()">
+      <i class="fa fa-shopping-cart margin-right-10" aria-hidden="true"></i>
+      <span class="circle">{{numberOfItemsInCart}}</span>
+    </span>
+  </div>
+</div>
+
+
+<!--Categories bar-->
+<div class="categories-bar cu">
+  <div *ngFor="let category of categories" class="category">
+    <span (click)="categoryClicked(category)"  class="cursor-pointer">{{category}}</span>
+  </div>
+</div>
+
+<div class="page-container"  [ngSwitch]="currentPage">
+  <app-main-page *ngSwitchCase="'home'"></app-main-page>
+  <app-category-page *ngSwitchCase="'category'" [categoryName]="currentCategorySelected"></app-category-page>
+  <app-checkout-page *ngSwitchCase="'checkout'"></app-checkout-page>
+</div>
+
+<div *ngIf="showCart" class="cart-wrapper">
+  <app-cart class="cart-container" (notifyCloseCart)="closeCart($event)" (notifyCheckout)="checkout()"></app-cart>
+</div>
+
+<router-outlet></router-outlet>
