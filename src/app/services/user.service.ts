@@ -9,7 +9,7 @@ export class UserService {
 
   mosheUser: User = {
     username: 'moshe',
-    displayName: 'Moshe Shein :~)',
+    displayName: 'Moshe Shein :)',
     mainPage: {
       leftImg: '#ff0000',
       rightImg: '#00ff00'
